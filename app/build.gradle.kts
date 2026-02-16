@@ -40,37 +40,24 @@ android {
         compose = true
     }
 }
-
 dependencies {
-    implementation(libs.play.services.maps)
-    implementation(libs.androidx.fragment)
-    val navVersion = "2.9.7"
-    // Jetpack Compose integration
+
+    // Compose
+    implementation(libs.androidx.core.ktx.v1170)
+    implementation(libs.androidx.lifecycle.runtime.ktx.v262)
+    implementation(libs.androidx.activity.compose.v190)
+    implementation(libs.androidx.ui)
+    // Google Maps
+    implementation(libs.play.services.maps.v1820)
+    implementation(libs.play.services.location)
+    // Para KML
+    implementation(libs.android.maps.utils.v230)
+    // Kotlin coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
-    // Views/Fragments integration
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-    // Feature module support for Fragments
-    implementation(libs.androidx.navigation.dynamic.features.fragment)
-    // Testing Navigation
-    androidTestImplementation(libs.androidx.navigation.testing)
-    // JSON serialization library, works with the Kotlin serialization plugin
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.android.maps.utils)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation(libs.osmdroid.android)
+    testImplementation(kotlin("test"))
 
 }

@@ -8,7 +8,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    onStartClick: () -> Unit
+) {
     Scaffold { innerPadding ->
         Box(
             modifier = Modifier
@@ -25,10 +27,11 @@ fun MainScreen() {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                Button(onClick = { }) {
+                Button(onClick = onStartClick) {
                     Text("Empezar")
                 }
             }
         }
     }
 }
+
