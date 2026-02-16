@@ -1,6 +1,10 @@
 package com.mapclover.stampquest.ui
 
 
+import android.content.Context
+import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
@@ -12,6 +16,8 @@ import org.osmdroid.config.Configuration
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
 
 @Composable
@@ -22,10 +28,22 @@ fun MapScreen() {
 
     val mapView = remember {
         Configuration.getInstance().load(context, context.getSharedPreferences("osm", 0))
+
         MapView(context).apply {
             setMultiTouchControls(true)
+
+            val locationOverlay = MyLocationNewOverlay(
+                GpsMyLocationProvider(context),
+                this
+            )
+
+            locationOverlay.enableMyLocation()
+            overlays.add(locationOverlay)
         }
     }
+
+    val vibratedStamps = mutableSetOf<String>()
+
 
     AndroidView(
         factory = { mapView },
@@ -48,6 +66,40 @@ fun MapScreen() {
 
                 map.overlays.add(marker)
             }
+            val locationOverlay = map.overlays
+                .filterIsInstance<MyLocationNewOverlay>()
+                .firstOrNull()
+
+            val myLocation = locationOverlay?.myLocation
+
+            if (myLocation != null) {
+
+                stamps.forEach { stamp ->
+
+                    val distance = myLocation.distanceToAsDouble(
+                        GeoPoint(stamp.latitude, stamp.longitude)
+                    )
+
+                    if (distance < 50 && !vibratedStamps.contains(stamp.id)) {
+
+                        val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            vibrator.vibrate(
+                                VibrationEffect.createOneShot(
+                                    300,
+                                    VibrationEffect.DEFAULT_AMPLITUDE
+                                )
+                            )
+                        } else {
+                            vibrator.vibrate(300)
+                        }
+
+                        vibratedStamps.add(stamp.id)
+                    }
+                }
+            }
+
         }
     )
 }
