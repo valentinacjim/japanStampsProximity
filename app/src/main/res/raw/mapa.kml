@@ -1,0 +1,2584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>JAPÓN 2026</name>
+    <description/>
+    <Style id="icon-1504-0288D1-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-8.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1504-0288D1-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-8.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1504-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1504-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1504-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-0288D1-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-2.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-2.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-097138-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-5.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-097138-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-5.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-097138-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-097138-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-097138-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-0F9D58-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-17.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-0F9D58-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-17.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-0F9D58-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0F9D58-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0F9D58-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-1A237E-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-12.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-1A237E-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-12.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-1A237E-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-1A237E-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-1A237E-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-3949AB-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-3949AB-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-3949AB-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-3949AB-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-3949AB-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-673AB7-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-3.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-673AB7-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-3.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-673AB7">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-673AB7-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-673AB7-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-673AB7-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-3.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-673AB7-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-3.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-673AB7-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-673AB7-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-673AB7-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-795548-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-14.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-795548-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-14.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-795548-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-795548-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-795548-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-7CB342-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-13.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-7CB342-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-13.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-7CB342-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-7CB342-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-7CB342-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-880E4F-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-16.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-880E4F-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-16.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-880E4F-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-880E4F-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-880E4F-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-9C27B0-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-4.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-9C27B0-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-4.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-9C27B0-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-9C27B0-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-9C27B0-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-A52714-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-7.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-A52714-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-7.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-A52714-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-A52714-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-A52714-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-AFB42B-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-6.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-AFB42B-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-6.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-AFB42B-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-AFB42B-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-AFB42B-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-BDBDBD-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-11.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-BDBDBD-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-11.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-BDBDBD-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-BDBDBD-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-BDBDBD-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-C2185B-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-15.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-C2185B-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-15.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-C2185B-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-C2185B-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-C2185B-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-F9A825-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-9.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-F9A825-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-9.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-F9A825-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-F9A825-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-F9A825-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-FF5252-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-10.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-FF5252-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-10.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-FF5252-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-FF5252-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-FF5252-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-673AB7-3131-nodesc-normal">
+      <LineStyle>
+        <color>ffb73a67</color>
+        <width>3.131</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-673AB7-3131-nodesc-highlight">
+      <LineStyle>
+        <color>ffb73a67</color>
+        <width>4.6965</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-673AB7-3131-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-673AB7-3131-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-673AB7-3131-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-9C27B0-5069-nodesc-normal">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>5.069</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-9C27B0-5069-nodesc-highlight">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>7.6035</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-9C27B0-5069-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-9C27B0-5069-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-9C27B0-5069-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-F48FB1-3713-nodesc-normal">
+      <LineStyle>
+        <color>ffb18ff4</color>
+        <width>3.713</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-F48FB1-3713-nodesc-highlight">
+      <LineStyle>
+        <color>ffb18ff4</color>
+        <width>5.5695</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-F48FB1-3713-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-F48FB1-3713-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-F48FB1-3713-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-B2EBF2-4601-77-nodesc-normal">
+      <LineStyle>
+        <color>fff2ebb2</color>
+        <width>4.601</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4df2ebb2</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-B2EBF2-4601-77-nodesc-highlight">
+      <LineStyle>
+        <color>fff2ebb2</color>
+        <width>6.9015</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4df2ebb2</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-B2EBF2-4601-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-B2EBF2-4601-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-B2EBF2-4601-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-C5E1A5-3801-77-nodesc-normal">
+      <LineStyle>
+        <color>ffa5e1c5</color>
+        <width>3.801</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4da5e1c5</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-C5E1A5-3801-77-nodesc-highlight">
+      <LineStyle>
+        <color>ffa5e1c5</color>
+        <width>5.7015</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4da5e1c5</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-C5E1A5-3801-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-C5E1A5-3801-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-C5E1A5-3801-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>TOKYO</name>
+      <Placemark>
+        <name>Shinjuku</name>
+        <styleUrl>#icon-1899-3949AB-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7033559,35.6938253,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Akihabara</name>
+        <styleUrl>#icon-1899-3949AB-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7744733,35.7022589,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Shibuya</name>
+        <styleUrl>#icon-1899-3949AB-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.703795,35.6619707,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Harajuku</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.709008,35.6699682,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tokyo Skytree</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.8107004,35.7100627,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Torre de Tokio</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7454329,35.6585805,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Palacio imperial de Tokio</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7527995,35.685175,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sensō-ji</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7966553,35.7147651,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Parque de Ueno</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7734312,35.7147557,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Templo Zojoji</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7482928,35.657479,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ayuntamiento de Tokio</name>
+        <description>Espectáculo de noche</description>
+        <styleUrl>#icon-1899-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            139.6916863,35.6894807,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santuario Hie</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7399379,35.6746656,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santuario Meiji</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.6993259,35.6763976,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Puente Arcoíris</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7631443,35.6365639,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro de Información Turística y Cultural de Asakusa</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7965461,35.7107074,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ueno Ameyoko Shopping Street</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7745474,35.7100581,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Studio Ghibli clock</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7595436,35.6646529,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dawn Avatar Robot Cafe</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7767499,35.6896494,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Café capyba</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.8143766,35.7199925,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Caretta Shiodome</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7625223,35.6644594,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kimono Reborn Tokyo</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.8005725,35.7140492,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Shibamata Taishakuten</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.8784378,35.7584061,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Shinjuku Kitamura Camera</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7024398,35.6916566,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Roppongi Hills</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7292319,35.6607397,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tokyo Big Sight</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7947414,35.6291226,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Templo Gōtokuji</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.647481,35.6488124,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Statues of Kirin</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7743455,35.6840892,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santuario Nezu</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7607695,35.7201366,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Neco Republic Ochanomizu</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.766883,35.7030548,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Janpara Shinjuku East Exit Store</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7012857,35.6938217,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Shelter Shimokitazawa</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.6694661,35.661482,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Odaiba</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7805445,35.6205834,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ginza Yanaka</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7657232,35.7276934,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Omoide Yokochō- Callejón de los Recuerdos</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.6995778,35.6927011,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Muscle Bar Macho Macho Shinjuku</name>
+        <styleUrl>#icon-1899-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.6984566,35.6929209,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Macho Macho Shibuya</name>
+        <styleUrl>#icon-1899-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.6991408,35.6579162,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Muscle Bar Macho Macho Shinjuku</name>
+        <styleUrl>#icon-1899-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.6984566,35.6929209,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SHOTBAR MAO ANNEX -SHINJUKU-</name>
+        <styleUrl>#icon-1899-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7019173,35.6942936,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>MUSCLE LOUNGE Neon(マッスルラウンジ ネオン)〜歌舞筋肉〜</name>
+        <styleUrl>#icon-1899-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7025166,35.6951296,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Deathmatch in Hell</name>
+        <styleUrl>#icon-1899-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7049309,35.6939081,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Muscle Bar LEMON Kabukicho</name>
+        <styleUrl>#icon-1899-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7041343,35.6940472,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>マッスルバー まっちょまっちょ六本木店</name>
+        <styleUrl>#icon-1899-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7314936,35.6643816,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dragon Men</name>
+        <styleUrl>#icon-1899-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7072693,35.6902625,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sumō Museum</name>
+        <styleUrl>#icon-1899-AFB42B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7931224,35.6971152,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nakamura-beya Sumo Stable</name>
+        <styleUrl>#icon-1899-AFB42B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7912864,35.6957359,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sumo Chaya Terao</name>
+        <styleUrl>#icon-1899-AFB42B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.791678,35.6945185,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dewanoumi-beya Sumo Stable</name>
+        <styleUrl>#icon-1899-AFB42B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.792651,35.6923651,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SUMOLAND TOKYO RYOGOKU</name>
+        <styleUrl>#icon-1899-AFB42B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7952531,35.6946727,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Arena Nacional de Sumo Ryogoku Kokugikan</name>
+        <styleUrl>#icon-1899-AFB42B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7932746,35.6969732,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ASAKUSA SUMO CLUB</name>
+        <styleUrl>#icon-1899-AFB42B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7932306,35.7141548,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>STREET KART Akihabara 1st</name>
+        <styleUrl>#icon-1899-A52714-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7734935,35.7024565,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Akiba Kart Shinjuku</name>
+        <styleUrl>#icon-1899-A52714-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7126741,35.6879698,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Akiba Kart Shibuya</name>
+        <styleUrl>#icon-1899-A52714-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7135464,35.6547662,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Polígono 52</name>
+        <styleUrl>#poly-B2EBF2-4601-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                139.6909565,35.705174,0
+                139.625207,35.641302,0
+                139.8145592,35.6258147,0
+                139.7834867,35.6585997,0
+                139.7549894,35.6888612,0
+                139.6909565,35.705174,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Polígono 53</name>
+        <styleUrl>#poly-C5E1A5-3801-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                139.7579327,35.7293582,0
+                139.736648,35.7198824,0
+                139.7960391,35.6588194,0
+                139.8918201,35.7675291,0
+                139.7579327,35.7293582,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Aeropuerto Internacional de Narita</name>
+        <styleUrl>#icon-1504-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            140.3843215,35.770178,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Parque Yoyogi</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.6951373,35.6700649,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>NEOShinjuku Atsushi</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7058354,35.6906964,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Miotsukushi Yokocho Ningyocho Store</name>
+        <styleUrl>#icon-1899-F9A825-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7819314,35.6874576,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Maidreamin Akihabara Head Store</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7712982,35.7020083,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Akiba Wanwan Empire Akihabara Maid Cafe</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7710294,35.7013802,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Akiba Zettai Ryoiki</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7693721,35.6999496,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>(Maid Cafe) at-home cafe Akihabara Main</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7708027,35.6996066,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cure Maid Café</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7709188,35.6982877,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RABBIT CASTLE Maid Cafe</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7720813,35.7010634,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Maidcafe Maidreamin Akihabara idol-dori Store</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7718573,35.7012282,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Magical Girl Maid Cafe Magical Lollipop</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7719723,35.7000596,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>In Akihabara, there is no problem even if a maid from another world serves you!</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7716676,35.698561,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Maid Cafe MAID MADE Akihabara Electric Town-exit Store</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7722915,35.6977107,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Enoshima</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.4809269,35.2990992,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Funabashi</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.9827277,35.6945485,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kasukabe</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.752313,35.9752624,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Crayon Shin-chan Buriburi Cinema Studio</name>
+        <styleUrl>#icon-1899-BDBDBD-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.755698,35.9772465,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kasukabe City Angel Dome</name>
+        <styleUrl>#icon-1899-BDBDBD-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7711047,35.9827156,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>KIOTO</name>
+      <Placemark>
+        <name>Gion</name>
+        <styleUrl>#icon-1899-1A237E-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.777245,35.0037816,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kiyomizu-dera</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.784661,34.9946662,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fushimi Inari-taisha</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7791876,34.9676945,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kinkaku-ji Temple</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7293191,35.0391218,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ginkaku-ji</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7982058,35.0270213,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ryōan-ji</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7182634,35.0344943,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Heian Jingū</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7824263,35.0159823,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mercado de Nishiki</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.764723,35.0050258,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Miyagawacho Kaburenjo (Mai Hall)</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7714592,34.9995909,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santuario Yasaka</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7785534,35.0036559,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Evangelion Kyoto Base</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7067574,35.0167861,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kyoto Handicraft Center</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7802494,35.0177234,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pokemon Center Kyoto</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7583839,35.0034167,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kibune River</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7632877,35.1207992,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Monte Kurama</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7715748,35.123872,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Arashiyama Monkey Park Iwatayama</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.6766245,35.011395,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Templo Eikando</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7941588,35.0148543,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Jardín Botánico de Kioto</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7630378,35.0486172,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Okazaki Shrine</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7887934,35.0173671,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bosque de Bambú de Arashiyama</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.6713013,35.0168187,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nonomiya Shrine</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.6741474,35.0177328,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nintendo Museum</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.784166,34.8927989,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Oficinas Corporativas de Nintendo</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.756209,34.969739,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Castillo de Fushimi-Momoyama</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7769255,34.9394686,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Togetsukyō Bridge</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.6777748,35.0128769,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Castillo Nijō</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7484258,35.0140379,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Palacio Imperial Sento de Kioto</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7651343,35.0223399,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tea Ceremony Ju-An</name>
+        <styleUrl>#icon-1899-7CB342-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7641507,34.9953234,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tea Ceremony Chayu</name>
+        <styleUrl>#icon-1899-7CB342-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7777045,34.9967128,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kimono Tea Ceremony MAIKOYA Gion Kiyomizu</name>
+        <styleUrl>#icon-1899-7CB342-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7740186,34.9976964,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>【岡田】kyoto calligraphy experience</name>
+        <styleUrl>#icon-1899-7CB342-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7772184,34.9983274,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tea Ceremony Experience Kissho 茶道体験 吉祥</name>
+        <styleUrl>#icon-1899-7CB342-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7787348,35.0013188,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kyoto Chano-yu Akebonotei</name>
+        <styleUrl>#icon-1899-7CB342-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.780998,34.9963907,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kyoto Samurai</name>
+        <styleUrl>#icon-1899-795548-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7671558,35.0071037,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>KYOTO SAMURAI NINJA MUSEUM With Experience (Experience Floor of the Kyoto Samurai Ninja Museum)</name>
+        <styleUrl>#icon-1899-795548-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.766638,35.0048501,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kanizamurai</name>
+        <styleUrl>#icon-1899-795548-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7665807,35.0049752,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>SAMURAI NINJA MUSEUM Kyoto</name>
+        <styleUrl>#icon-1899-795548-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7635673,35.0072167,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Menya Totaro</name>
+        <styleUrl>#icon-1899-795548-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7633734,35.008297,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>KYOTO SAMURAI WALK</name>
+        <styleUrl>#icon-1899-795548-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7709448,35.0088271,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Puka Kimono Rental</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7703523,34.9974432,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nameless Kimono Rental</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7764521,34.9947308,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kimono rental KANWA（清水寺店）</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7777346,34.9952792,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Wabi Sabi Kimono Rental</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7770248,34.9970566,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kimono Rental IRODORI KYOTO Kiyomizu Oku</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7758083,34.9977482,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>KIMONO RENTAL MOMO（京都本店)</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7718985,35.001823,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kimono Rental Kanwa</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7772791,35.0015535,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Best flower kimono rental service</name>
+        <styleUrl>#icon-1899-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7730126,35.0040039,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>CICON ROOFTOP BAR by NOHGA HOTEL</name>
+        <styleUrl>#icon-1899-C2185B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7740835,34.995199,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>NARA</name>
+      <Placemark>
+        <name>Nigatsu-do</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.8442433,34.6892747,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tōdai-ji</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.8398158,34.6889851,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santuario Kasuga Taisha</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.8484719,34.6815454,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Templo Yakushi-ji</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7843007,34.668587,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Templo Kofukuji</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.8311589,34.6832311,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Palacio Heijō</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7942516,34.6865079,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Yoshikien Garden</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.8363105,34.6854761,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>OSAKA</name>
+      <Placemark>
+        <name>Dotonbori</name>
+        <styleUrl>#icon-1899-1A237E-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.5030983,34.6686471,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nipponbashi</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.5057497,34.6590233,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Castillo Osaka</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.5258546,34.6872571,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Umeda Sky Building (osaka)</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.4896527,34.7052872,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Universal Studios Japan</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.4323185,34.6656768,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Abeno Harukas</name>
+        <styleUrl>#icon-1899-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.5134771,34.6460706,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Acuario de Osaka</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.4289645,34.6545182,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Shitennō-ji</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.5165239,34.6544581,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Daisen-ryo Kofun (Tomb of Emperor Nintoku)</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.4874764,34.5639426,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tajihayahime-Jinja</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.4978388,34.5021091,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Templo Katsuo-ji</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.491087,34.8657752,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sakai City Hall</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.4828707,34.5735857,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santuario Yasaka Namba</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.4967039,34.6615592,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Osaka Tenmangu</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.5126556,34.6960576,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Neco Republic Osaka</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.507748,34.6733391,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Kyudo</name>
+      <Placemark>
+        <name>Kyudo Experience</name>
+        <styleUrl>#icon-1899-BDBDBD-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            135.7462224,34.9999735,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kyudo Japan</name>
+        <styleUrl>#icon-1899-BDBDBD-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.8172164,35.6933735,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>半弓道場 ゆみやさん</name>
+        <styleUrl>#icon-1899-BDBDBD-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.7596674,35.7048845,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kyudo Japan</name>
+        <styleUrl>#icon-1899-BDBDBD-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.8172164,35.6933735,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Hakone</name>
+      <Placemark>
+        <name>Hakone</name>
+        <styleUrl>#icon-1899-1A237E-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.1088454,35.2337691,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gora Station</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.048205,35.250852,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Teleférico de Hakone</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.0198459,35.2444656,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hakone Pirate Ship Tōgendai Port</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            138.99449,35.2374411,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Torii de la Paz del Santuario Hakone</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.0257419,35.202783,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lago Ashi</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.0074137,35.2046361,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Owakudani</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.0216288,35.2429797,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Yumoto</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.1085732,35.2323555,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Nikko</name>
+      <Placemark>
+        <name>Nikkō</name>
+        <styleUrl>#icon-1899-1A237E-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.6982361,36.7198987,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Shinkyō Bridge</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.6040034,36.75337,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cascada Kegon</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.501941,36.7380893,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rinnoji Temple</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.5992328,36.7546184,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santuario Futarasan</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.5964386,36.7584491,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kanmangafuchi Abyss</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.5895987,36.7491745,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nikkō Tōshō-gū</name>
+        <styleUrl>#icon-1899-880E4F-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            139.5987466,36.7580878,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Takayama</name>
+      <Placemark>
+        <name>Takayama</name>
+        <styleUrl>#icon-1899-1A237E-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.252159,36.1461317,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sanmachi Suji</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.2596227,36.1413161,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santuario Sakurayama Hachiman</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.2608132,36.148445,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Templo Hida Kokubunji</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.253864,36.1434743,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Higashiyama Shinmei Shrine</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.2672244,36.1438942,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hirata Sake Brewery</name>
+        <styleUrl>#icon-1899-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.2599024,36.143138,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hirase Sake Brewery Tasting Room</name>
+        <styleUrl>#icon-1899-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.261658,36.141727,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fábrica de sake Harada</name>
+        <styleUrl>#icon-1899-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.2592919,36.1406856,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fábrica de sake Futaki</name>
+        <styleUrl>#icon-1899-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.2597788,36.1428142,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fábrica de sake Funasaka</name>
+        <styleUrl>#icon-1899-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.2597061,36.140741,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kawashiri Sake Brewery</name>
+        <styleUrl>#icon-1899-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            137.2602722,36.1424186,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Gifu</name>
+      <Placemark>
+        <name>Gifu</name>
+        <styleUrl>#icon-1899-1A237E-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            136.7606217,35.4234226,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Castillo de Gifu</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            136.7820713,35.433918,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gifu Park</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            136.7743679,35.4346855,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kawaramachi Street</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            136.7722891,35.4376253,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>長良川鵜飼</name>
+        <styleUrl>#icon-1899-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            136.777634,35.4400211,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Itinerario</name>
+      <Placemark>
+        <name>Línea 1</name>
+        <styleUrl>#line-9C27B0-5069-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            139.7656962,35.6849833,0
+            139.6982361,36.7198987,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Línea 4</name>
+        <styleUrl>#line-F48FB1-3713-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            139.752313,35.9752624,0
+            139.7656962,35.6849833,0
+            139.98584,35.6980012,0
+            139.7656962,35.6849833,0
+            139.4809269,35.2990992,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Línea 5</name>
+        <styleUrl>#line-673AB7-3131-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            140.3841732,35.7680397,0
+            139.7656962,35.6849833,0
+            137.252159,36.1461317,0
+            136.7606217,35.4234226,0
+            135.768284,35.010858,0
+            135.8050918,34.6844893,0
+            135.7690482,35.0045901,0
+            135.5126556,34.6960576,0
+            139.0257419,35.202783,0
+            139.7527995,35.685175,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

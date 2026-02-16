@@ -3,17 +3,15 @@ package com.mapclover.stampquest
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Modifier
 import com.mapclover.stampquest.ui.StampQuestApp
-import com.mapclover.stampquest.ui.theme.StampQuestTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState) // se ejecuta cuando la app arranca
+        super.onCreate(savedInstanceState)
         setContent {
-            StampQuestTheme {
-                StampQuestApp()
-            }
+            StampQuestApp(modifier = Modifier.fillMaxSize())
         }
-
     }
 }

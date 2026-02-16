@@ -42,6 +42,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.play.services.maps)
+    implementation(libs.androidx.fragment)
     val navVersion = "2.9.7"
     // Jetpack Compose integration
     implementation(libs.androidx.navigation.compose)
@@ -57,6 +59,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.android.maps.utils)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)

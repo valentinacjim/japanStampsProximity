@@ -1,13 +1,13 @@
 package com.mapclover.stampquest.ui
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.compose.*
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun StampQuestApp() {
+fun StampQuestApp(modifier: Modifier) {
     val navController = rememberNavController()
 
     NavHost(
