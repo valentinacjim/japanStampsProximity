@@ -70,11 +70,15 @@ class KmlRepository(private val context: Context) {
                     url,
                     hasStamp,
                     latitude,
-                    longitude
+                    longitude,
+                    region = "Unknown",
+                    category = "Unknown"
                 )
             )
         }
 
         return stamps
     }
+
+    fun unlockStamp(id: String) {}
 }

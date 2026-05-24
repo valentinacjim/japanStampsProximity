@@ -1,5 +1,7 @@
 package com.mapclover.stampquest.data.model
 
+import android.graphics.Region
+
 data class Stamp(
     val id: String,
     val name: String,
@@ -8,6 +10,8 @@ data class Stamp(
     val url: String?,
     val hasStamp: Boolean,
     val latitude: Double,
-    val longitude: Double
+    val longitude: Double,
+    val region: String,
+    val category: String
 )
 
