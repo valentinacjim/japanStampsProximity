@@ -1,12 +1,10 @@
 package com.mapclover.stampquest.data.repository
 
 import android.content.Context
-import androidx.compose.ui.Modifier
 import com.mapclover.stampquest.R
 import com.mapclover.stampquest.data.model.Stamp
 import org.w3c.dom.Element
 import javax.xml.parsers.DocumentBuilderFactory
-
 
 class KmlRepository(private val context: Context) {
 
@@ -35,7 +33,6 @@ class KmlRepository(private val context: Context) {
             val longitude = parts[0].toDouble()
             val latitude = parts[1].toDouble()
 
-            // ExtendedData
             val dataNodes = placemark.getElementsByTagName("Data")
 
             var id = ""
@@ -43,6 +40,8 @@ class KmlRepository(private val context: Context) {
             var address: String? = null
             var url: String? = null
             var hasStamp = false
+            var region = "Unknown"
+            var category = "Unknown"
 
             for (j in 0 until dataNodes.length) {
                 val data = dataNodes.item(j) as Element
@@ -58,21 +57,15 @@ class KmlRepository(private val context: Context) {
                     "住所" -> address = value
                     "URL" -> url = value
                     "スタンプ設置" -> hasStamp = value.contains("設置あり")
+                    "region" -> region = value
+                    "category" -> category = value
                 }
             }
 
             stamps.add(
                 Stamp(
-                    id,
-                    name,
-                    englishName,
-                    address,
-                    url,
-                    hasStamp,
-                    latitude,
-                    longitude,
-                    region = "Unknown",
-                    category = "Unknown"
+                    id, name, englishName, address, url, hasStamp,
+                    latitude, longitude, region, category
                 )
             )
         }

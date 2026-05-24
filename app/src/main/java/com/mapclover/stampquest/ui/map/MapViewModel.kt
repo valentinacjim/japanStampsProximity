@@ -16,6 +16,8 @@ class MapViewModel(
 
     private val _uiState = MutableStateFlow(MapUiState())
     val uiState = _uiState.asStateFlow()
+    private val _events = MutableSharedFlow<MapEvent>()
+    public val events = _events.asSharedFlow()
 
     fun loadStamps() {
         viewModelScope.launch {
@@ -37,10 +39,8 @@ class MapViewModel(
         data object VibrateUnlock : MapEvent()
     }
 
-    private val _events = MutableSharedFlow<MapEvent>()
-    val events = _events.asSharedFlow()
-
     suspend fun onStampUnlocked() {
         _events.emit(MapEvent.VibrateUnlock)
     }
+
 }

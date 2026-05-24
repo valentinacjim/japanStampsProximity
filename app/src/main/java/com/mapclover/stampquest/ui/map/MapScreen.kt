@@ -24,6 +24,11 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import org.osmdroid.views.overlay.infowindow.InfoWindow
 import android.graphics.drawable.BitmapDrawable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.mapclover.stampquest.domain.service.ProximityService
+import com.mapclover.stampquest.notification.ProximityNotifier
+import kotlin.collections.remove
 import kotlin.math.roundToInt
 
 @Composable
@@ -31,24 +36,21 @@ fun MapScreen() {
     val context = LocalContext.current
     val repository = remember { KmlRepository(context) }
     val stamps = remember { repository.loadStamps() }
+    val notifier = remember { ProximityNotifier(context) }
+    val proximityService = remember { ProximityService(context, notifier) }
 
     val mapView = remember {
         Configuration.getInstance().load(context, context.getSharedPreferences("osm", 0))
-
         MapView(context).apply {
             setMultiTouchControls(true)
-
             val locationOverlay = MyLocationNewOverlay(
                 GpsMyLocationProvider(context),
                 this
             )
-
             locationOverlay.enableMyLocation()
             overlays.add(locationOverlay)
         }
     }
-
-    val vibratedStamps = mutableSetOf<String>()
 
     AndroidView(
         factory = { mapView },
@@ -58,72 +60,37 @@ fun MapScreen() {
             map.controller.setZoom(6.0)
             map.controller.setCenter(startPoint)
 
-            // remover marcadores anteriores si se re-renderiza
             map.overlays.filterIsInstance<Marker>().forEach { map.overlays.remove(it) }
 
-            // Obtener overlay de localización para pasar a la InfoWindow si hace falta
             val locationOverlay = map.overlays
                 .filterIsInstance<MyLocationNewOverlay>()
                 .firstOrNull()
 
-            // Crear una instancia de InfoWindow reutilizable que conoce el map y el overlay de ubicación
             val stampInfoWindow = makeStampInfoWindow(context, map, locationOverlay)
 
             stamps.forEach { stamp ->
                 val marker = Marker(map)
-
-                // Icono sencillo generado en tiempo de ejecución (círculo con inicial)
                 val label = stamp.name.take(1).uppercase()
-                val iconDrawable = BitmapDrawable(context.resources, createCircularIcon(80, Color.parseColor("#FF7043"), label))
+                val iconDrawable = BitmapDrawable(
+                    context.resources,
+                    createCircularIcon(80, Color.parseColor("#FF7043"), label)
+                )
                 marker.icon = iconDrawable
-
-                // Título y snippet más legible
                 marker.title = stamp.name + if (!stamp.englishName.isNullOrBlank()) " (${stamp.englishName})" else ""
                 marker.snippet = stamp.address ?: ""
-
-                // Asignar posición del marcador
                 marker.position = GeoPoint(stamp.latitude, stamp.longitude)
-
-                // Asociar el objeto stamp para que la InfoWindow lo pueda usar
                 marker.relatedObject = stamp
-
-                // Usar la InfoWindow personalizada
                 marker.infoWindow = stampInfoWindow
-
                 marker.setOnMarkerClickListener { m, _ ->
                     m.showInfoWindow()
                     true
                 }
-
                 map.overlays.add(marker)
             }
 
             val myLocation = locationOverlay?.myLocation
-
             if (myLocation != null) {
-                stamps.forEach { stamp ->
-                    val distance = myLocation.distanceToAsDouble(
-                        GeoPoint(stamp.latitude, stamp.longitude)
-                    )
-
-                    if (distance < 50 && !vibratedStamps.contains(stamp.id)) {
-                        val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            vibrator.vibrate(
-                                VibrationEffect.createOneShot(
-                                    300,
-                                    VibrationEffect.DEFAULT_AMPLITUDE
-                                )
-                            )
-                        } else {
-                            @Suppress("DEPRECATION")
-                            vibrator.vibrate(300)
-                        }
-
-                        vibratedStamps.add(stamp.id)
-                    }
-                }
+                proximityService.checkProximity(myLocation, stamps)
             }
         }
     )
