@@ -48,7 +48,7 @@ class JsonRepository(private val context: Context) {
             result.add(stamp)
         }
 
-        return result
+        return result.filter(::isInSupportedArea)
     }
 
     fun unlockStamp(stampId: String) {
@@ -61,5 +61,34 @@ class JsonRepository(private val context: Context) {
 
         @Volatile
         private var cachedStamps: List<Stamp>? = null
+
+        /** The app is intentionally limited to the selected travel destinations. */
+        private val supportedAreas = listOf(
+            Area(35.52, 35.90, 139.55, 139.95), // Tokio
+            Area(34.85, 35.15, 135.55, 135.95), // Kioto
+            Area(35.15, 35.30, 138.90, 139.20), // Hakone
+            Area(36.05, 36.25, 137.10, 137.35), // Takayama
+            Area(35.30, 35.50, 136.65, 136.90), // Gifu
+            Area(34.55, 34.85, 135.35, 135.75), // Osaka
+            Area(36.55, 37.10, 139.45, 140.05), // Nikko
+            Area(35.90, 36.10, 139.65, 139.85), // Kasukabe
+            Area(35.25, 35.40, 139.40, 139.60)  // Enoshima
+        )
+
+        private fun isInSupportedArea(stamp: Stamp): Boolean {
+            val latitude = stamp.lat ?: return false
+            val longitude = stamp.lon ?: return false
+            return supportedAreas.any { area -> area.contains(latitude, longitude) }
+        }
+    }
+
+    private data class Area(
+        val minLatitude: Double,
+        val maxLatitude: Double,
+        val minLongitude: Double,
+        val maxLongitude: Double
+    ) {
+        fun contains(latitude: Double, longitude: Double): Boolean =
+            latitude in minLatitude..maxLatitude && longitude in minLongitude..maxLongitude
     }
 }

@@ -49,8 +49,8 @@ fun MapScreen() {
         Configuration.getInstance().load(context, context.getSharedPreferences("osm", 0))
         MapView(context).apply {
             setMultiTouchControls(true)
-            controller.setZoom(6.0)
-            controller.setCenter(GeoPoint(40.4168, -3.7038))
+            controller.setZoom(8.0)
+            controller.setCenter(GeoPoint(35.6762, 139.6503))
             val locationOverlay = MyLocationNewOverlay(
                 GpsMyLocationProvider(context),
                 this
