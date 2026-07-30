@@ -6,6 +6,8 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.os.Handler
+import android.os.Looper
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
@@ -20,29 +22,50 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import org.osmdroid.views.overlay.infowindow.InfoWindow
 import android.graphics.drawable.BitmapDrawable
+import androidx.compose.runtime.DisposableEffect
 import com.mapclover.stampquest.data.repository.JsonRepository
 import com.mapclover.stampquest.domain.service.ProximityService
 import com.mapclover.stampquest.notification.ProximityNotifier
+import org.osmdroid.events.MapListener
+import org.osmdroid.events.ScrollEvent
+import org.osmdroid.events.ZoomEvent
 import kotlin.math.roundToInt
 
 @Composable
 fun MapScreen() {
     val context = LocalContext.current
     val repository = remember { JsonRepository(context) }
-    val stamps = remember { repository.loadStamps() }
+    val stamps = androidx.compose.runtime.produceState(
+        initialValue = emptyList<com.mapclover.stampquest.data.model.Stamp>(),
+        repository
+    ) {
+        value = repository.loadStamps()
+    }.value
     val notifier = remember { ProximityNotifier(context) }
     val proximityService = remember { ProximityService(context, notifier) }
+    val markerRenderer = remember(context) { MapMarkerRenderer(context) }
 
     val mapView = remember {
         Configuration.getInstance().load(context, context.getSharedPreferences("osm", 0))
         MapView(context).apply {
             setMultiTouchControls(true)
+            controller.setZoom(6.0)
+            controller.setCenter(GeoPoint(40.4168, -3.7038))
             val locationOverlay = MyLocationNewOverlay(
                 GpsMyLocationProvider(context),
                 this
             )
             locationOverlay.enableMyLocation()
             overlays.add(locationOverlay)
+            markerRenderer.attach(this, locationOverlay)
+        }
+    }
+
+    DisposableEffect(mapView) {
+        mapView.onResume()
+        onDispose {
+            markerRenderer.dispose()
+            mapView.onDetach()
         }
     }
 
@@ -50,46 +73,101 @@ fun MapScreen() {
         factory = { mapView },
         modifier = Modifier.fillMaxSize(),
         update = { map ->
-            val startPoint = GeoPoint(40.4168, -3.7038)
-            map.controller.setZoom(6.0)
-            map.controller.setCenter(startPoint)
-
-            map.overlays.filterIsInstance<Marker>().forEach { map.overlays.remove(it) }
-
-            val locationOverlay = map.overlays
-                .filterIsInstance<MyLocationNewOverlay>()
-                .firstOrNull()
-
-            val stampInfoWindow = makeStampInfoWindow(context, map, locationOverlay)
-
-            stamps.forEach { stamp ->
-                val marker = Marker(map)
-                val label = stamp.nombreEn?.take(1)?.uppercase()
-                val iconDrawable = BitmapDrawable(
-                    context.resources,
-                    createCircularIcon(80, Color.parseColor("#FF7043"), label)
-                )
-                val latitude: Double = stamp.lat ?: 0.0
-                val longitude: Double = stamp.lon ?: 0.0
-                marker.icon = iconDrawable
-                marker.title = stamp.nombreEn
-                marker.snippet = stamp.direccion ?: ""
-                marker.position = GeoPoint(latitude, longitude)
-                marker.relatedObject = stamp
-                marker.infoWindow = stampInfoWindow
-                marker.setOnMarkerClickListener { m, _ ->
-                    m.showInfoWindow()
-                    true
-                }
-                map.overlays.add(marker)
-            }
-
-            val myLocation = locationOverlay?.myLocation
+            markerRenderer.setStamps(stamps)
+            val myLocation = markerRenderer.locationOverlay?.myLocation
             if (myLocation != null) {
                 proximityService.checkProximity(myLocation, stamps)
             }
         }
     )
+}
+
+/** Keeps map overlays outside Compose state and only creates markers in the viewport. */
+private class MapMarkerRenderer(private val context: Context) : MapListener {
+    private lateinit var map: MapView
+    var locationOverlay: MyLocationNewOverlay? = null
+        private set
+    private var stamps: List<com.mapclover.stampquest.data.model.Stamp> = emptyList()
+    private val markers = mutableListOf<Marker>()
+    private val iconBitmaps = mutableMapOf<String, Bitmap>()
+    private var lastViewportKey: String? = null
+    private val renderHandler = Handler(Looper.getMainLooper())
+    private val deferredRender = Runnable { renderVisibleMarkers() }
+
+    fun attach(map: MapView, locationOverlay: MyLocationNewOverlay) {
+        this.map = map
+        this.locationOverlay = locationOverlay
+        map.addMapListener(this)
+    }
+
+    fun setStamps(stamps: List<com.mapclover.stampquest.data.model.Stamp>) {
+        if (this.stamps === stamps) return
+        this.stamps = stamps
+        lastViewportKey = null
+        renderVisibleMarkers()
+    }
+
+    override fun onScroll(event: ScrollEvent?): Boolean {
+        scheduleRender()
+        return false
+    }
+
+    override fun onZoom(event: ZoomEvent?): Boolean {
+        scheduleRender()
+        return false
+    }
+
+    fun dispose() {
+        renderHandler.removeCallbacks(deferredRender)
+        if (::map.isInitialized) map.removeMapListener(this)
+    }
+
+    private fun scheduleRender() {
+        // Map events arrive for every small movement; wait until the gesture settles
+        // instead of scanning the full data set on every frame.
+        renderHandler.removeCallbacks(deferredRender)
+        renderHandler.postDelayed(deferredRender, 150)
+    }
+
+    private fun renderVisibleMarkers() {
+        if (!::map.isInitialized || stamps.isEmpty()) return
+        val box = map.boundingBox
+        val viewportKey = "${box.latNorth}:${box.latSouth}:${box.lonEast}:${box.lonWest}"
+        if (viewportKey == lastViewportKey) return
+        lastViewportKey = viewportKey
+
+        val visibleStamps = stamps.asSequence().filter { stamp ->
+            val lat = stamp.lat
+            val lon = stamp.lon
+            lat != null && lon != null &&
+                lat in box.latSouth..box.latNorth && lon in box.lonWest..box.lonEast
+        }.toList()
+
+        map.overlays.removeAll(markers)
+        markers.clear()
+        val infoWindow = makeStampInfoWindow(context, map, locationOverlay)
+
+        visibleStamps.forEach { stamp ->
+            val label = stamp.nombreEn.take(1).uppercase()
+            val bitmap = iconBitmaps.getOrPut(label) {
+                createCircularIcon(80, Color.parseColor("#FF7043"), label)
+            }
+            markers += Marker(map).apply {
+                icon = BitmapDrawable(context.resources, bitmap)
+                title = stamp.nombreEn
+                snippet = stamp.direccion
+                position = GeoPoint(stamp.lat!!, stamp.lon!!)
+                relatedObject = stamp
+                this.infoWindow = infoWindow
+                setOnMarkerClickListener { marker, _ ->
+                    marker.showInfoWindow()
+                    true
+                }
+            }
+        }
+        map.overlays.addAll(markers)
+        map.invalidate()
+    }
 }
 
 /**

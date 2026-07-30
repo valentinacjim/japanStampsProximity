@@ -2,11 +2,23 @@ package com.mapclover.stampquest.data.repository
 
 import android.content.Context
 import com.mapclover.stampquest.data.model.Stamp
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.json.JSONArray
 
 class JsonRepository(private val context: Context) {
 
-    fun loadStamps(): List<Stamp> {
+    /**
+     * Parses the bundled data once per process.  The file contains thousands of
+     * entries, so doing this work on the main thread makes opening the map jank.
+     */
+    suspend fun loadStamps(): List<Stamp> = withContext(Dispatchers.IO) {
+        cachedStamps ?: synchronized(cacheLock) {
+            cachedStamps ?: readStamps().also { cachedStamps = it }
+        }
+    }
+
+    private fun readStamps(): List<Stamp> {
         val jsonString = context.assets
             .open("mapa.json")
             .bufferedReader()
@@ -42,5 +54,12 @@ class JsonRepository(private val context: Context) {
     fun unlockStamp(stampId: String) {
         // Aquí podrías guardar el estado desbloqueado en SharedPreferences o una base de datos local
         // Por simplicidad, este método no hace nada en esta implementación
+    }
+
+    private companion object {
+        private val cacheLock = Any()
+
+        @Volatile
+        private var cachedStamps: List<Stamp>? = null
     }
 }
