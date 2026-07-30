@@ -20,8 +20,11 @@ class ProximityService(
         if (userLocation == null) return
 
         stamps.forEach { stamp ->
+            val latitude = stamp.lat ?: 0.0
+            val longitude = stamp.lon ?: 0.0
+
             val distance = userLocation.distanceToAsDouble(
-                GeoPoint(stamp.latitude, stamp.longitude)
+                GeoPoint(latitude, longitude)
             )
 
             if (distance < radiusMeters && !vibratedStamps.contains(stamp.id)) {

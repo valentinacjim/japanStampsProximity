@@ -2,9 +2,6 @@ package com.mapclover.stampquest.ui.map
 
 import android.content.Context
 import android.graphics.*
-import android.os.Build
-import android.os.VibrationEffect
-import android.os.Vibrator
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -15,7 +12,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
-import com.mapclover.stampquest.data.repository.KmlRepository
 import org.osmdroid.config.Configuration
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
@@ -24,17 +20,15 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import org.osmdroid.views.overlay.infowindow.InfoWindow
 import android.graphics.drawable.BitmapDrawable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.lifecycle.viewmodel.compose.viewModel
+import com.mapclover.stampquest.data.repository.JsonRepository
 import com.mapclover.stampquest.domain.service.ProximityService
 import com.mapclover.stampquest.notification.ProximityNotifier
-import kotlin.collections.remove
 import kotlin.math.roundToInt
 
 @Composable
 fun MapScreen() {
     val context = LocalContext.current
-    val repository = remember { KmlRepository(context) }
+    val repository = remember { JsonRepository(context) }
     val stamps = remember { repository.loadStamps() }
     val notifier = remember { ProximityNotifier(context) }
     val proximityService = remember { ProximityService(context, notifier) }
@@ -70,15 +64,17 @@ fun MapScreen() {
 
             stamps.forEach { stamp ->
                 val marker = Marker(map)
-                val label = stamp.name.take(1).uppercase()
+                val label = stamp.nombreEn?.take(1)?.uppercase()
                 val iconDrawable = BitmapDrawable(
                     context.resources,
                     createCircularIcon(80, Color.parseColor("#FF7043"), label)
                 )
+                val latitude: Double = stamp.lat ?: 0.0
+                val longitude: Double = stamp.lon ?: 0.0
                 marker.icon = iconDrawable
-                marker.title = stamp.name + if (!stamp.englishName.isNullOrBlank()) " (${stamp.englishName})" else ""
-                marker.snippet = stamp.address ?: ""
-                marker.position = GeoPoint(stamp.latitude, stamp.longitude)
+                marker.title = stamp.nombreEn
+                marker.snippet = stamp.direccion ?: ""
+                marker.position = GeoPoint(latitude, longitude)
                 marker.relatedObject = stamp
                 marker.infoWindow = stampInfoWindow
                 marker.setOnMarkerClickListener { m, _ ->
@@ -145,8 +141,10 @@ private fun makeStampInfoWindow(
 
             // Calcular distancia si hay ubicación conocida
             val myLocation = locationOverlay?.myLocation
+            val latitude: Double = (stamp as? com.mapclover.stampquest.data.model.Stamp)?.lat ?: 0.0
+            val longitude: Double = (stamp as? com.mapclover.stampquest.data.model.Stamp)?.lon ?: 0.0
             val distanceText = if (myLocation != null && stamp is com.mapclover.stampquest.data.model.Stamp) {
-                val d = myLocation.distanceToAsDouble(GeoPoint(stamp.latitude, stamp.longitude))
+                val d = myLocation.distanceToAsDouble(GeoPoint(latitude, longitude))
                 "${d.roundToInt()} m"
             } else {
                 ""
@@ -164,7 +162,7 @@ private fun makeStampInfoWindow(
  * Genera un bitmap circular con una letra en el centro para usar de icono.
  * Así no dependemos de drawable resources.
  */
-private fun createCircularIcon(sizePx: Int, color: Int, letter: String): Bitmap {
+private fun createCircularIcon(sizePx: Int, color: Int, letter: String?): Bitmap {
     val bmp = Bitmap.createBitmap(sizePx, sizePx, Bitmap.Config.ARGB_8888)
     val canvas = Canvas(bmp)
     val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -183,7 +181,9 @@ private fun createCircularIcon(sizePx: Int, color: Int, letter: String): Bitmap 
     }
     val fm = textPaint.fontMetrics
     val textY = radius - (fm.ascent + fm.descent) / 2
-    canvas.drawText(letter, radius, textY, textPaint)
+    if (letter != null) {
+        canvas.drawText(letter, radius, textY, textPaint)
+    }
 
     return bmp
 }

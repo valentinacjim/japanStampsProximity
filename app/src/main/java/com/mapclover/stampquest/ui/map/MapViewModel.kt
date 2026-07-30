@@ -2,7 +2,7 @@ package com.mapclover.stampquest.ui.map
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mapclover.stampquest.data.repository.KmlRepository
+import com.mapclover.stampquest.data.repository.JsonRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MapViewModel(
-    private val repository: KmlRepository
+    private val repository: JsonRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(MapUiState())

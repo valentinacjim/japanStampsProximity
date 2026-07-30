@@ -13,19 +13,15 @@ class FilterStampsUseCase {
 
         return stamps.filter { stamp ->
 
-            val regionOk =
-                filters.region == null ||
-                        stamp.region == filters.region
-
             val categoryOk =
                 filters.category == null ||
-                        stamp.category == filters.category
+                        stamp.categoria == filters.category
 
             val unlockedOk =
                 filters.showUnlocked ||
                         stamp.id !in unlockedIds
 
-            regionOk && categoryOk && unlockedOk
+            categoryOk && unlockedOk
         }
     }
 }
