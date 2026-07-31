@@ -56,9 +56,7 @@ class WatchProximityController(private val context: Context) {
             val coordinates = entry.optJSONObject("coordenadas") ?: continue
             val latitude = coordinates.optDouble("latitud", Double.NaN)
             val longitude = coordinates.optDouble("longitud", Double.NaN)
-            if (!latitude.isFinite() || !longitude.isFinite() ||
-                (entry.optString("id") != TEST_STAMP_ID && !isSupportedArea(latitude, longitude))
-            ) continue
+            if (!latitude.isFinite() || !longitude.isFinite() || !isSupportedArea(latitude, longitude)) continue
             val stamp = WatchStamp(entry.optString("id"), entry.optString("nombre_en"), latitude, longitude)
             grid.getOrPut(Cell.of(latitude, longitude)) { mutableListOf() }.add(stamp)
         }
@@ -107,7 +105,6 @@ class WatchProximityController(private val context: Context) {
     private companion object {
         const val CHANNEL_ID = "nearby_eki_stamps"
         const val ALERT_RADIUS_METERS = 100.0
-        const val TEST_STAMP_ID = "test-felipe-pingarron-5a"
         val supportedAreas = listOf(
             Area(35.52, 35.90, 139.55, 139.95), Area(34.85, 35.15, 135.55, 135.95),
             Area(35.15, 35.30, 138.90, 139.20), Area(36.05, 36.25, 137.10, 137.35),

@@ -76,13 +76,11 @@ class JsonRepository(private val context: Context) {
         )
 
         private fun isInSupportedArea(stamp: Stamp): Boolean {
-            if (stamp.id == TEST_STAMP_ID) return true
             val latitude = stamp.lat ?: return false
             val longitude = stamp.lon ?: return false
             return supportedAreas.any { area -> area.contains(latitude, longitude) }
         }
 
-        private const val TEST_STAMP_ID = "test-felipe-pingarron-5a"
     }
 
     private data class Area(

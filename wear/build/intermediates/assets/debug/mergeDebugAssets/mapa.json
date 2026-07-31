@@ -116273,10 +116273,10 @@
     "tiene_sello": "test",
     "coordenadas": {
       "latitud": 40.348418,
-      "longitud": -3.710188
+      "longitud": -3.710778
     },
     "lat_csv": "40.348418",
-    "lon_csv": "-3.710188",
+    "lon_csv": "-3.710778",
     "categoria": "Test de proximidad"
   }
 ]
