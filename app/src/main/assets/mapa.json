@@ -116263,5 +116263,20 @@
     "lat_csv": "35.681345697832086",
     "lon_csv": "139.76836092231443",
     "categoria": "Punto Turistico Permanente"
+  },
+  {
+    "id": "test-felipe-pingarron-5a",
+    "nombre_jp": "Test Eki Stamp",
+    "nombre_en": "Test Eki Stamp - Felipe Pingarrón",
+    "direccion": "Calle Felipe Pingarrón 5A, Madrid",
+    "url": "",
+    "tiene_sello": "test",
+    "coordenadas": {
+      "latitud": 40.348418,
+      "longitud": -3.710188
+    },
+    "lat_csv": "40.348418",
+    "lon_csv": "-3.710188",
+    "categoria": "Test de proximidad"
   }
 ]

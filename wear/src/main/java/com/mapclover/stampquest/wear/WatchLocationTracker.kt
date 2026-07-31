@@ -11,6 +11,7 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
+import com.google.android.gms.tasks.CancellationTokenSource
 
 class WatchLocationTracker(context: Context) {
     private val appContext = context.applicationContext
@@ -27,6 +28,9 @@ class WatchLocationTracker(context: Context) {
                 result.lastLocation?.let(onLocation)
             }
         }
+        val cancellationToken = CancellationTokenSource()
+        client.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, cancellationToken.token)
+            .addOnSuccessListener { location -> location?.let(onLocation) }
         val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10_000)
             .setMinUpdateIntervalMillis(5_000)
             .build()

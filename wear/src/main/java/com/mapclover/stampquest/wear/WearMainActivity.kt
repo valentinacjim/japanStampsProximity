@@ -6,12 +6,15 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
+import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 class WearMainActivity : Activity() {
     private lateinit var status: TextView
+    private lateinit var proximityTester: WatchProximityController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +24,20 @@ class WearMainActivity : Activity() {
             setPadding(20, 20, 20, 20)
             text = "Preparando Eki Stamps…"
         }
-        setContentView(status)
+        proximityTester = WatchProximityController(this)
+        val testButton = Button(this).apply {
+            text = "Probar vibración"
+            setOnClickListener {
+                proximityTester.testAlert()
+                status.text = "Prueba enviada. ¿Ha vibrado el reloj?"
+            }
+        }
+        setContentView(LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            gravity = Gravity.CENTER
+            addView(status)
+            addView(testButton)
+        })
 
         requestPermissionsIfNeeded()
     }
@@ -50,7 +66,13 @@ class WearMainActivity : Activity() {
             add(Manifest.permission.ACCESS_COARSE_LOCATION)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) add(Manifest.permission.POST_NOTIFICATIONS)
         }.filter { ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED }
-        if (permissions.isNotEmpty()) ActivityCompat.requestPermissions(this, permissions.toTypedArray(), 1)
+        if (permissions.isNotEmpty()) {
+            ActivityCompat.requestPermissions(this, permissions.toTypedArray(), 1)
+        } else {
+            // The user may already have granted permissions in a previous install.
+            // Start tracking in that case instead of waiting for a callback that won't arrive.
+            startTracking()
+        }
     }
 
     private fun hasLocationPermission() =
