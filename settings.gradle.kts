@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "StampQuest"
 include(":app")
+include(":wear")
