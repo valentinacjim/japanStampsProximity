@@ -28,7 +28,7 @@ class ProximityService(
             )
 
             if (distance < radiusMeters && !vibratedStamps.contains(stamp.id)) {
-                notifier.vibrateUnlock()
+                notifier.notifyNearbyStamp(stamp)
                 vibratedStamps.add(stamp.id)
             }
         }

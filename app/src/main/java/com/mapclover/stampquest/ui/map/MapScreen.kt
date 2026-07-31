@@ -25,6 +25,7 @@ import android.graphics.drawable.BitmapDrawable
 import androidx.compose.runtime.DisposableEffect
 import com.mapclover.stampquest.data.repository.JsonRepository
 import com.mapclover.stampquest.domain.service.ProximityService
+import com.mapclover.stampquest.location.EkiProximityLocationTracker
 import com.mapclover.stampquest.notification.ProximityNotifier
 import org.osmdroid.events.MapListener
 import org.osmdroid.events.ScrollEvent
@@ -43,6 +44,7 @@ fun MapScreen() {
     }.value
     val notifier = remember { ProximityNotifier(context) }
     val proximityService = remember { ProximityService(context, notifier) }
+    val locationTracker = remember { EkiProximityLocationTracker(context) }
     val markerRenderer = remember(context) { MapMarkerRenderer(context) }
 
     val mapView = remember {
@@ -69,15 +71,23 @@ fun MapScreen() {
         }
     }
 
+    DisposableEffect(stamps) {
+        if (stamps.isNotEmpty()) {
+            locationTracker.start { location ->
+                proximityService.checkProximity(
+                    GeoPoint(location.latitude, location.longitude),
+                    stamps
+                )
+            }
+        }
+        onDispose { locationTracker.stop() }
+    }
+
     AndroidView(
         factory = { mapView },
         modifier = Modifier.fillMaxSize(),
         update = { map ->
             markerRenderer.setStamps(stamps)
-            val myLocation = markerRenderer.locationOverlay?.myLocation
-            if (myLocation != null) {
-                proximityService.checkProximity(myLocation, stamps)
-            }
         }
     )
 }
