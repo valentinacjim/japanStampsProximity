@@ -1,6 +1,7 @@
 package com.mapclover.stampquest.domain.service
 
 import android.content.Context
+import com.mapclover.stampquest.data.local.SeenStampsManager
 import com.mapclover.stampquest.data.model.Stamp
 import com.mapclover.stampquest.notification.ProximityNotifier
 import org.osmdroid.util.GeoPoint
@@ -10,6 +11,7 @@ class ProximityService(
     private val context: Context,
     private val notifier: ProximityNotifier
 ) {
+    private val seenStampsManager = SeenStampsManager(context)
     private val vibratedStamps = mutableSetOf<String>()
 
     fun checkProximity(
@@ -27,7 +29,7 @@ class ProximityService(
                 GeoPoint(latitude, longitude)
             )
 
-            if (distance < radiusMeters && !vibratedStamps.contains(stamp.id)) {
+            if (distance < radiusMeters && !vibratedStamps.contains(stamp.id) && !seenStampsManager.isSeen(stamp.id)) {
                 notifier.notifyNearbyStamp(stamp)
                 vibratedStamps.add(stamp.id)
             }

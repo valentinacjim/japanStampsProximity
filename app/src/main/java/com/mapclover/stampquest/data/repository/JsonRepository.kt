@@ -41,6 +41,7 @@ class JsonRepository(private val context: Context) {
                 url = obj.optString("url"),
                 tieneSello = obj.optString("tiene_sello"),
                 categoria = obj.optString("categoria"),
+                area = obj.optString("area").takeIf { it.isNotBlank() },
                 lat = coords?.optDouble("latitud"),
                 lon = coords?.optDouble("longitud")
             )

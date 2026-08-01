@@ -21,7 +21,11 @@ class FilterStampsUseCase {
                 filters.showUnlocked ||
                         stamp.id !in unlockedIds
 
-            categoryOk && unlockedOk
+            val areaOk =
+                filters.region == null ||
+                        stamp.area == filters.region
+
+            categoryOk && unlockedOk && areaOk
         }
     }
 }

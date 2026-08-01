@@ -4,6 +4,7 @@ import android.app.NotificationChannel
 import android.app.Notification
 import android.app.NotificationManager
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
@@ -17,7 +18,8 @@ import kotlin.math.floor
  */
 class WatchProximityController(private val context: Context) {
     private val stampsByCell: Map<Cell, List<WatchStamp>> by lazy { loadGrid() }
-    private val notifiedIds = mutableSetOf<String>()
+    private val nearbyStampIds = mutableSetOf<String>()
+    private val seenStampsPrefs: SharedPreferences = context.getSharedPreferences("seen_stamps", Context.MODE_PRIVATE)
 
     init {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -37,14 +39,28 @@ class WatchProximityController(private val context: Context) {
             }
         }.firstOrNull { stamp ->
             distanceMeters(latitude, longitude, stamp.latitude, stamp.longitude) < ALERT_RADIUS_METERS
-        } ?: return null
+        }
 
-        if (notifiedIds.add(nearby.id)) alert(nearby)
-        return nearby.name
+        val previousNearbyIds = nearbyStampIds.toSet()
+        nearbyStampIds.clear()
+
+        if (nearby != null) {
+            nearbyStampIds.add(nearby.id)
+            if (!previousNearbyIds.contains(nearby.id) && !isSeen(nearby.id)) {
+                alert(nearby)
+            }
+        }
+
+        return nearby?.name
     }
 
     fun testAlert() {
         alert(WatchStamp("test-vibration", "Prueba de vibración", 0.0, 0.0))
+    }
+
+    private fun isSeen(stampId: String): Boolean {
+        val seenIds = seenStampsPrefs.getStringSet("seen_stamps_ids", emptySet()) ?: emptySet()
+        return seenIds.contains(stampId)
     }
 
     private fun loadGrid(): Map<Cell, List<WatchStamp>> {
