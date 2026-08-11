@@ -42,7 +42,7 @@ import org.osmdroid.events.ZoomEvent
 import kotlin.math.roundToInt
 
 @Composable
-fun MapScreen() {
+fun MapScreen(onCollectionClick: () -> Unit) {
     val context = LocalContext.current
     val repository = remember { JsonRepository(context) }
     val stamps = androidx.compose.runtime.produceState(
@@ -56,10 +56,12 @@ fun MapScreen() {
     val locationTracker = remember { EkiProximityLocationTracker(context) }
     val markerRenderer = remember(context) { MapMarkerRenderer(context) }
     val filterStampsUseCase = remember { FilterStampsUseCase() }
+    val seenStampsManager = remember { SeenStampsManager(context) }
     
     var filters by remember { mutableStateOf(StampFilters()) }
+    var seenStampIds by remember { mutableStateOf(seenStampsManager.getSeenStamps()) }
     val visibleStamps = remember(stamps, filters) {
-        filterStampsUseCase(stamps, filters, emptySet())
+        filterStampsUseCase(stamps, filters, seenStampIds)
     }
     
     val areas = listOf("Tokyo", "Kyoto", "Hakone", "Takayama", "Gifu", "Osaka", "Nikko", "Kasukabe", "Enoshima")
@@ -120,7 +122,16 @@ fun MapScreen() {
             color = MaterialTheme.colorScheme.surface.copy(alpha = 0.95f)
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
-                Text("Filtros", style = MaterialTheme.typography.titleMedium)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text("Filtros", style = MaterialTheme.typography.titleMedium)
+                    TextButton(onClick = onCollectionClick) {
+                        Text("Colección (${seenStampIds.size})")
+                    }
+                }
                 Spacer(modifier = Modifier.height(8.dp))
                 
                 Text("Área", style = MaterialTheme.typography.labelMedium)
@@ -227,7 +238,9 @@ private class MapMarkerRenderer(private val context: Context) : MapListener {
 
         map.overlays.removeAll(markers)
         markers.clear()
-        val infoWindow = makeStampInfoWindow(context, map, locationOverlay)
+        val infoWindow = makeStampInfoWindow(context, map, locationOverlay) { stampId ->
+            seenStampIds = seenStampsManager.getSeenStamps()
+        }
 
         visibleStamps.forEach { stamp ->
             val label = stamp.nombreEn.take(1).uppercase()
@@ -259,7 +272,8 @@ private class MapMarkerRenderer(private val context: Context) : MapListener {
 private fun makeStampInfoWindow(
     context: Context,
     mapView: MapView,
-    locationOverlay: MyLocationNewOverlay?
+    locationOverlay: MyLocationNewOverlay?,
+    onStampSeen: (String) -> Unit
 ): InfoWindow {
     val seenStampsManager = SeenStampsManager(context)
     
@@ -337,6 +351,7 @@ private fun makeStampInfoWindow(
                 seenStampsManager.markAsSeen(stamp.id)
                 markButton.visibility = ViewGroup.GONE
                 markedView.visibility = ViewGroup.VISIBLE
+                onStampSeen(stamp.id)
             }
         }
 
