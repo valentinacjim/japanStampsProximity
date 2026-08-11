@@ -1,6 +1,7 @@
 package com.mapclover.stampquest
 
-import kotlin.test.assertEquals
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
 
 /**
@@ -14,5 +15,3 @@ class ExampleUnitTest {
         assertEquals(4, 2 + 2)
     }
 }
-
-annotation class Test

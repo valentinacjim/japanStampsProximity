@@ -59,7 +59,7 @@ dependencies {
     implementation(libs.osmdroid.android)
     implementation(libs.androidx.room.common.jvm)
     implementation(libs.androidx.room.ktx)
-    testImplementation(kotlin("test"))
+    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 

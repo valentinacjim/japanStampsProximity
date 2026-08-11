@@ -1,6 +1,7 @@
 package com.mapclover.stampquest.ui.map
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.graphics.*
 import android.view.Gravity
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.ContextCompat
 import org.osmdroid.config.Configuration
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
@@ -31,10 +33,9 @@ import android.graphics.drawable.BitmapDrawable
 import androidx.compose.runtime.DisposableEffect
 import com.mapclover.stampquest.data.local.SeenStampsManager
 import com.mapclover.stampquest.data.repository.JsonRepository
-import com.mapclover.stampquest.domain.service.ProximityService
 import com.mapclover.stampquest.domain.usecase.FilterStampsUseCase
-import com.mapclover.stampquest.location.EkiProximityLocationTracker
-import com.mapclover.stampquest.notification.ProximityNotifier
+import com.mapclover.stampquest.location.ProximityTrackingPreferences
+import com.mapclover.stampquest.location.ProximityTrackingService
 import com.mapclover.stampquest.ui.filters.StampFilters
 import org.osmdroid.events.MapListener
 import org.osmdroid.events.ScrollEvent
@@ -51,16 +52,25 @@ fun MapScreen(onCollectionClick: () -> Unit) {
     ) {
         value = repository.loadStamps()
     }.value
-    val notifier = remember { ProximityNotifier(context) }
-    val proximityService = remember { ProximityService(context, notifier) }
-    val locationTracker = remember { EkiProximityLocationTracker(context) }
-    val markerRenderer = remember(context) { MapMarkerRenderer(context) }
-    val filterStampsUseCase = remember { FilterStampsUseCase() }
+    val trackingPreferences = remember { ProximityTrackingPreferences(context) }
+    var trackingEnabled by remember { mutableStateOf(trackingPreferences.isEnabled) }
+    val hasLocationPermission = ContextCompat.checkSelfPermission(
+        context,
+        android.Manifest.permission.ACCESS_FINE_LOCATION
+    ) == PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+        context,
+        android.Manifest.permission.ACCESS_COARSE_LOCATION
+    ) == PackageManager.PERMISSION_GRANTED
     val seenStampsManager = remember { SeenStampsManager(context) }
-    
     var filters by remember { mutableStateOf(StampFilters()) }
     var seenStampIds by remember { mutableStateOf(seenStampsManager.getSeenStamps()) }
-    val visibleStamps = remember(stamps, filters) {
+    val markerRenderer = remember(context) {
+        MapMarkerRenderer(context) {
+            seenStampIds = seenStampsManager.getSeenStamps()
+        }
+    }
+    val filterStampsUseCase = remember { FilterStampsUseCase() }
+    val visibleStamps = remember(stamps, filters, seenStampIds) {
         filterStampsUseCase(stamps, filters, seenStampIds)
     }
     
@@ -91,18 +101,6 @@ fun MapScreen(onCollectionClick: () -> Unit) {
         }
     }
 
-    DisposableEffect(stamps) {
-        if (stamps.isNotEmpty()) {
-            locationTracker.start { location ->
-                proximityService.checkProximity(
-                    GeoPoint(location.latitude, location.longitude),
-                    stamps
-                )
-            }
-        }
-        onDispose { locationTracker.stop() }
-    }
-
     Box(modifier = Modifier.fillMaxSize()) {
         AndroidView(
             factory = { mapView },
@@ -131,6 +129,20 @@ fun MapScreen(onCollectionClick: () -> Unit) {
                     TextButton(onClick = onCollectionClick) {
                         Text("Colección (${seenStampIds.size})")
                     }
+                }
+                TextButton(
+                    enabled = hasLocationPermission,
+                    onClick = {
+                        trackingEnabled = !trackingEnabled
+                        trackingPreferences.isEnabled = trackingEnabled
+                        if (trackingEnabled) ProximityTrackingService.start(context)
+                        else ProximityTrackingService.stop(context)
+                    }
+                ) {
+                    Text(if (trackingEnabled) "Desactivar alertas" else "Activar alertas cercanas")
+                }
+                if (!hasLocationPermission) {
+                    Text("Concede permiso de ubicación para activar las alertas.", style = MaterialTheme.typography.bodySmall)
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 
@@ -176,7 +188,10 @@ fun MapScreen(onCollectionClick: () -> Unit) {
 }
 
 /** Keeps map overlays outside Compose state and only creates markers in the viewport. */
-private class MapMarkerRenderer(private val context: Context) : MapListener {
+private class MapMarkerRenderer(
+    private val context: Context,
+    private val onStampSeen: () -> Unit
+) : MapListener {
     private lateinit var map: MapView
     var locationOverlay: MyLocationNewOverlay? = null
         private set
@@ -238,9 +253,7 @@ private class MapMarkerRenderer(private val context: Context) : MapListener {
 
         map.overlays.removeAll(markers)
         markers.clear()
-        val infoWindow = makeStampInfoWindow(context, map, locationOverlay) { stampId ->
-            seenStampIds = seenStampsManager.getSeenStamps()
-        }
+        val infoWindow = makeStampInfoWindow(context, map, locationOverlay, onStampSeen)
 
         visibleStamps.forEach { stamp ->
             val label = stamp.nombreEn.take(1).uppercase()
@@ -273,7 +286,7 @@ private fun makeStampInfoWindow(
     context: Context,
     mapView: MapView,
     locationOverlay: MyLocationNewOverlay?,
-    onStampSeen: (String) -> Unit
+    onStampSeen: () -> Unit
 ): InfoWindow {
     val seenStampsManager = SeenStampsManager(context)
     
@@ -351,7 +364,7 @@ private fun makeStampInfoWindow(
                 seenStampsManager.markAsSeen(stamp.id)
                 markButton.visibility = ViewGroup.GONE
                 markedView.visibility = ViewGroup.VISIBLE
-                onStampSeen(stamp.id)
+                onStampSeen()
             }
         }
 

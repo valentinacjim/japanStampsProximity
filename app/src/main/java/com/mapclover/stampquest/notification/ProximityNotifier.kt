@@ -12,6 +12,7 @@ import android.os.VibratorManager
 import androidx.annotation.RequiresPermission
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import com.mapclover.stampquest.data.model.Stamp
 
 class ProximityNotifier(
@@ -22,9 +23,13 @@ class ProximityNotifier(
         createNotificationChannel()
     }
 
-    @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
     fun notifyNearbyStamp(stamp: Stamp) {
         vibrateUnlock()
+
+        val canPostNotifications = Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+            ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
+                android.content.pm.PackageManager.PERMISSION_GRANTED
+        if (!canPostNotifications) return
 
         val notification = NotificationCompat.Builder(context, PROXIMITY_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_dialog_map)
