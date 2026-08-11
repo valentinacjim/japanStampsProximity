@@ -17,9 +17,11 @@ class FilterStampsUseCase {
                 filters.category == null ||
                         stamp.categoria == filters.category
 
-            val unlockedOk =
-                filters.showUnlocked ||
-                        stamp.id !in unlockedIds
+            val unlockedOk = when (filters.seenStatus) {
+                com.mapclover.stampquest.ui.filters.SeenStatus.FOUND -> stamp.id in unlockedIds
+                com.mapclover.stampquest.ui.filters.SeenStatus.PENDING -> stamp.id !in unlockedIds
+                null -> filters.showUnlocked || stamp.id !in unlockedIds
+            }
 
             val areaOk =
                 filters.region == null ||

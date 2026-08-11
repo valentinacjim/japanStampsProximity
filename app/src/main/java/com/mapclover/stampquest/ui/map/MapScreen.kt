@@ -30,6 +30,8 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import org.osmdroid.views.overlay.infowindow.InfoWindow
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.GradientDrawable
+import android.view.View
 import androidx.compose.runtime.DisposableEffect
 import com.mapclover.stampquest.data.local.SeenStampsManager
 import com.mapclover.stampquest.data.repository.JsonRepository
@@ -37,13 +39,17 @@ import com.mapclover.stampquest.domain.usecase.FilterStampsUseCase
 import com.mapclover.stampquest.location.ProximityTrackingPreferences
 import com.mapclover.stampquest.location.ProximityTrackingService
 import com.mapclover.stampquest.ui.filters.StampFilters
+import com.mapclover.stampquest.ui.filters.SeenStatus
 import org.osmdroid.events.MapListener
 import org.osmdroid.events.ScrollEvent
 import org.osmdroid.events.ZoomEvent
 import kotlin.math.roundToInt
 
 @Composable
-fun MapScreen(onCollectionClick: () -> Unit) {
+fun MapScreen(
+    onCollectionClick: () -> Unit,
+    focusStampId: String? = null
+) {
     val context = LocalContext.current
     val repository = remember { JsonRepository(context) }
     val stamps = androidx.compose.runtime.produceState(
@@ -101,6 +107,11 @@ fun MapScreen(onCollectionClick: () -> Unit) {
         }
     }
 
+    LaunchedEffect(stamps, focusStampId) {
+        val stamp = stamps.firstOrNull { it.id == focusStampId } ?: return@LaunchedEffect
+        mapView.post { markerRenderer.focusStamp(stamp) }
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
         AndroidView(
             factory = { mapView },
@@ -125,7 +136,10 @@ fun MapScreen(onCollectionClick: () -> Unit) {
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text("Filtros", style = MaterialTheme.typography.titleMedium)
+                    Column {
+                        Text("Eki Stamps", style = MaterialTheme.typography.titleMedium)
+                        Text("${visibleStamps.size} en el mapa", style = MaterialTheme.typography.bodySmall)
+                    }
                     TextButton(onClick = onCollectionClick) {
                         Text("Colección (${seenStampIds.size})")
                     }
@@ -182,6 +196,31 @@ fun MapScreen(onCollectionClick: () -> Unit) {
                         )
                     }
                 }
+                Spacer(modifier = Modifier.height(8.dp))
+                Text("Estado", style = MaterialTheme.typography.labelMedium)
+                LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    item {
+                        FilterChip(
+                            selected = filters.seenStatus == null,
+                            onClick = { filters = filters.copy(seenStatus = null) },
+                            label = { Text("Todos") }
+                        )
+                    }
+                    item {
+                        FilterChip(
+                            selected = filters.seenStatus == SeenStatus.FOUND,
+                            onClick = { filters = filters.copy(seenStatus = SeenStatus.FOUND) },
+                            label = { Text("Encontrados") }
+                        )
+                    }
+                    item {
+                        FilterChip(
+                            selected = filters.seenStatus == SeenStatus.PENDING,
+                            onClick = { filters = filters.copy(seenStatus = SeenStatus.PENDING) },
+                            label = { Text("Pendientes") }
+                        )
+                    }
+                }
             }
         }
     }
@@ -228,6 +267,23 @@ private class MapMarkerRenderer(
     fun dispose() {
         renderHandler.removeCallbacks(deferredRender)
         if (::map.isInitialized) map.removeMapListener(this)
+    }
+
+    fun focusStamp(stamp: com.mapclover.stampquest.data.model.Stamp) {
+        val latitude = stamp.lat ?: return
+        val longitude = stamp.lon ?: return
+        if (!::map.isInitialized) return
+
+        map.controller.setZoom(16.0)
+        map.controller.animateTo(GeoPoint(latitude, longitude))
+        lastViewportKey = null
+        renderHandler.removeCallbacks(deferredRender)
+        renderHandler.postDelayed({
+            renderVisibleMarkers()
+            markers.firstOrNull { marker ->
+                (marker.relatedObject as? com.mapclover.stampquest.data.model.Stamp)?.id == stamp.id
+            }?.showInfoWindow()
+        }, 350)
     }
 
     private fun scheduleRender() {
@@ -292,16 +348,34 @@ private fun makeStampInfoWindow(
     
     val container = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
-        setPadding(24, 16, 24, 16)
-        setBackgroundColor(Color.WHITE)
+        setPadding(32, 24, 32, 24)
+        background = GradientDrawable().apply {
+            setColor(Color.WHITE)
+            cornerRadius = 28f
+            setStroke(2, Color.parseColor("#E5E7EB"))
+        }
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        elevation = 8f
+        elevation = 14f
+    }
+
+    val header = LinearLayout(context).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
     }
 
     val titleView = TextView(context).apply {
         setTypeface(typeface, Typeface.BOLD)
         setTextColor(Color.BLACK)
         textSize = 16f
+        layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+    }
+
+    val minimizeButton = Button(context).apply {
+        text = "−"
+        textSize = 18f
+        minWidth = 0
+        minimumWidth = 0
+        setPadding(16, 0, 16, 0)
     }
 
     val addressView = TextView(context).apply {
@@ -312,7 +386,7 @@ private fun makeStampInfoWindow(
     val distanceView = TextView(context).apply {
         setTextColor(Color.GRAY)
         textSize = 12f
-        gravity = Gravity.END
+        gravity = Gravity.START
     }
 
     val buttonContainer = LinearLayout(context).apply {
@@ -328,11 +402,13 @@ private fun makeStampInfoWindow(
     }
 
     val markButton = Button(context).apply {
-        text = "Marcar como visto"
+        text = "Marcar encontrado"
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
-    container.addView(titleView)
+    header.addView(titleView)
+    header.addView(minimizeButton)
+    container.addView(header)
     container.addView(addressView)
     container.addView(distanceView)
     container.addView(buttonContainer)
@@ -340,12 +416,24 @@ private fun makeStampInfoWindow(
     buttonContainer.addView(markedView)
 
     return object : InfoWindow(container, mapView) {
+        private var minimized = false
+
+        private fun updateMinimized() {
+            val detailVisibility = if (minimized) View.GONE else View.VISIBLE
+            addressView.visibility = detailVisibility
+            distanceView.visibility = detailVisibility
+            buttonContainer.visibility = detailVisibility
+            minimizeButton.text = if (minimized) "+" else "−"
+        }
+
         override fun onOpen(item: Any?) {
             val marker = item as? Marker ?: return
             val stamp = marker.relatedObject as? com.mapclover.stampquest.data.model.Stamp ?: return
 
             titleView.text = stamp.nombreEn
             addressView.text = stamp.direccion
+            minimized = false
+            updateMinimized()
 
             val myLocation = locationOverlay?.myLocation
             val distanceText = if (myLocation != null && stamp.lat != null && stamp.lon != null) {
@@ -359,6 +447,12 @@ private fun makeStampInfoWindow(
             val isSeen = seenStampsManager.isSeen(stamp.id)
             markButton.visibility = if (isSeen) ViewGroup.GONE else ViewGroup.VISIBLE
             markedView.visibility = if (isSeen) ViewGroup.VISIBLE else ViewGroup.GONE
+            markedView.text = "✓ Encontrado"
+
+            minimizeButton.setOnClickListener {
+                minimized = !minimized
+                updateMinimized()
+            }
 
             markButton.setOnClickListener {
                 seenStampsManager.markAsSeen(stamp.id)
@@ -390,7 +484,7 @@ private fun createCircularIcon(sizePx: Int, color: Int, letter: String?): Bitmap
 
     // Texto
     val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        Color.WHITE
+        this.color = Color.WHITE
         textAlign = Paint.Align.CENTER
         textSize = sizePx * 0.5f
         typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
